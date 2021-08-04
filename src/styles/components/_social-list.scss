@@ -1,8 +1,23 @@
 .social-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
   &__item {
   }
 
   &__link {
+    svg path {
+      transition: 0.4s all ease-in-out;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      svg path {
+        fill: var(--color-main);
+      }
+    }
   }
 
   &__img {

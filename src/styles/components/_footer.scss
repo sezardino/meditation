@@ -1,0 +1,24 @@
+.footer {
+  padding-top: 115px;
+  padding-bottom: 30px;
+
+  background-image: var(--footer-bg);
+  background-position: bottom center;
+  background-size: cover;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__logo {
+  }
+
+  &__nav {
+  }
+
+  &__social-list {
+  }
+}
