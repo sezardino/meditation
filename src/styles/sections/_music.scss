@@ -34,6 +34,10 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+
+    @include breakpoint-down('xxl') {
+      max-width: 375px;
+    }
   }
 
   &__item {
@@ -67,6 +71,10 @@
       background-image: var(--background-gradient);
       box-shadow: -26px 4px 79px rgba(168, 207, 202, 0.39);
     }
+
+    @include breakpoint-down('xxl') {
+      padding: 10px;
+    }
   }
 
   &__item-wrapper {
@@ -78,6 +86,10 @@
     line-height: 4.7rem;
 
     color: rgba(var(--color-black), 0.8);
+
+    @include breakpoint-down('xxl') {
+      font-size: 2.6rem;
+    }
   }
 
   &__text {
@@ -99,5 +111,6 @@
 
   &__img {
     width: 100%;
+    height: auto;
   }
 }
