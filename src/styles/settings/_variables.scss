@@ -2,10 +2,15 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-main: #1a7f72;
+
+  --heading-color: rgba(0, 0, 0, 0.8);
+  --text-color: rgba(0, 0, 0, 0.5);
+
   --shadow-color: rgba(26, 127, 114, 0.2);
   --subtitle-color: rgba(var(--color-black), 0.8);
   --gradient: linear-gradient(90deg, #259385 0, #159685 100%);
   --background-gradient: linear-gradient(90deg, #1e9787 0%, #ffffff00 100%);
+
   --bg-color: #edfbf9;
   --hero-bg: url('../assets/images/bgs/hero-bg.png');
   --best-bg: url('../assets/images/bgs/best-bg.png');
