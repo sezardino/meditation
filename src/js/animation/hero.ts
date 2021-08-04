@@ -25,14 +25,49 @@ class Hero {
   loop() {
     const girl = this.scene.querySelector('#girl')
     const bgElements = this.scene.querySelectorAll('#bg path')
+    const orbits: Element[] = []
+    const circles: Element[] = []
 
-    this.tl.to([girl, bgElements], {
-      y: '+=5',
-      ease: 'power1.inOut',
-      duration: 2,
-      yoyo: true,
-      repeat: -1,
+    bgElements.forEach((item: Element) => {
+      const id = item.getAttribute('id')
+      if (id.includes('circle')) {
+        orbits.push(item)
+      } else if (id.includes('Vector')) {
+        circles.push(item)
+      }
     })
+
+    this.tl
+      // .defaults({
+      //   ease: 'power1.inOut',
+      //   yoyo: true,
+      //   repeat: -1,
+      // })
+      .addLabel('start')
+      .to(
+        girl,
+        {
+          y: '+=5',
+          duration: 2,
+        },
+        'start'
+      )
+      .to(
+        circles,
+        {
+          y: '+=10',
+          duration: 1,
+        },
+        'start'
+      )
+      .to(
+        orbits,
+        {
+          y: '-=15',
+          duration: 2,
+        },
+        'start'
+      )
   }
 
   init() {
