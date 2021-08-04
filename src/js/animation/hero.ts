@@ -39,9 +39,9 @@ class Hero {
 
     this.tl
       // .defaults({
-      //   ease: 'power1.inOut',
-      //   yoyo: true,
-      //   repeat: -1,
+      // ease: 'power1.inOut',
+      // yoyo: true,
+      // repeat: -1,
       // })
       .addLabel('start')
       .to(
@@ -49,6 +49,9 @@ class Hero {
         {
           y: '+=5',
           duration: 2,
+          ease: 'power1.inOut',
+          yoyo: true,
+          repeat: -1,
         },
         'start'
       )
@@ -57,6 +60,9 @@ class Hero {
         {
           y: '+=10',
           duration: 1,
+          ease: 'power1.inOut',
+          yoyo: true,
+          repeat: -1,
         },
         'start'
       )
@@ -65,6 +71,9 @@ class Hero {
         {
           y: '-=15',
           duration: 2,
+          ease: 'power1.inOut',
+          yoyo: true,
+          repeat: -1,
         },
         'start'
       )
