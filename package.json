@@ -46,5 +46,10 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/greensock": "^1.15.32",
+    "gsap": "^3.7.1"
   }
 }
