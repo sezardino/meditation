@@ -46,6 +46,14 @@
 
     display: flex;
     align-items: center;
+
+    transition: 0.4s color ease-in-out;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-main);
+    }
   }
 }
 
@@ -73,6 +81,10 @@
         right: 0;
 
         transform: translateY(-50%);
+      }
+
+      &:last-child:after {
+        content: none;
       }
     }
   }
