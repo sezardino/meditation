@@ -1,4 +1,14 @@
 .transformation {
+  padding-top: 70px;
+  padding-bottom: 130px;
+
+  background-image: var(--transformation-bg);
+  background-size: cover;
+  background-position: center;
+
+  &__container {
+  }
+
   &__header {
   }
 
@@ -8,21 +18,48 @@
   &__subtitle {
   }
 
+  &__heading {
+    font-weight: 500;
+    font-size: 3.2rem;
+    line-height: 4.7rem;
+
+    color: var(--heading-color);
+  }
+
+  &__text {
+    margin-top: 17px;
+
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+
+    color: var(--text-color);
+  }
+
   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
   }
 
   &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item:nth-child(2n) {
+    flex-direction: row-reverse;
   }
 
   &__img {
   }
 
   &__item-wrapper {
-  }
-
-  &__text {
+    max-width: 620px;
   }
 
   &__button {
+    margin-top: 30px;
   }
 }
