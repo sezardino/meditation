@@ -1,86 +1,51 @@
 import gsap from 'gsap'
+import AbsSection from './absSection'
 
-class Hero {
+class Hero extends AbsSection {
   tl: GSAPTimeline
-  hero: HTMLElement
-  header: HTMLElement
-  scene: HTMLElement
 
   constructor() {
+    super('.hero')
     this.tl = gsap.timeline()
-    this.hero = document.querySelector('.hero')
-    this.header = this.hero.querySelector('.hero__header')
-    this.scene = this.hero.querySelector('.hero__img')
 
+    this.withHeader()
     this.init()
   }
 
-  show() {
-    this.tl.set([this.header, this.scene], { opacity: 0 })
-    this.tl
-      .from(this.header, { x: '-=200', opacity: 1, duration: 2 })
-      .fromTo(this.scene, { x: '-=100' }, { x: 0, opacity: 1, duration: 1.5 })
+  showAnimation() {
+    const elements = Array.from(this.headerElements)
+    this.tl.set([this.headerElements, this.scene], { opacity: 0 })
+    this.tl.from(
+      [elements, this.scene],
+      { x: '-=100', opacity: 1, duration: 2, stagger: 0.8 },
+      2
+    )
   }
 
   loop() {
-    const girl = this.scene.querySelector('#girl')
-    const bgElements = this.scene.querySelectorAll('#bg path')
-    const orbits: Element[] = []
+    const front = this.scene.querySelector('#hero__front')
+    const bgElements = this.scene.querySelectorAll('#hero__bg path')
     const circles: Element[] = []
-
     bgElements.forEach((item: Element) => {
       const id = item.getAttribute('id')
-      if (id.includes('circle')) {
-        orbits.push(item)
-      } else if (id.includes('Vector')) {
+      if (!id?.includes('orbit_')) {
         circles.push(item)
       }
     })
-
+    const defaultValues = {
+      ease: 'power1.inOut',
+      yoyo: true,
+      repeat: -1,
+      duration: 2,
+    }
     this.tl
-      // .defaults({
-      // ease: 'power1.inOut',
-      // yoyo: true,
-      // repeat: -1,
-      // })
-      .addLabel('start')
-      .to(
-        girl,
-        {
-          y: '+=5',
-          duration: 2,
-          ease: 'power1.inOut',
-          yoyo: true,
-          repeat: -1,
-        },
-        'start'
-      )
-      .to(
-        circles,
-        {
-          y: '+=10',
-          duration: 1,
-          ease: 'power1.inOut',
-          yoyo: true,
-          repeat: -1,
-        },
-        'start'
-      )
-      .to(
-        orbits,
-        {
-          y: '-=15',
-          duration: 2,
-          ease: 'power1.inOut',
-          yoyo: true,
-          repeat: -1,
-        },
-        'start'
-      )
+      .addLabel('startLoop')
+      .to(front, { y: '+=10', ...defaultValues }, 'startLoop')
+      .to(circles, { y: '+=5', ...defaultValues }, 'startLoop')
   }
 
   init() {
-    this.show()
+    this.showAnimation()
     this.loop()
   }
 }

@@ -1,44 +1,40 @@
-import gsap from 'gsap'
+import gsap from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-class Explore {
+import { breakpoints } from '../utils/const'
+
+import AbsSection from './absSection'
+
+class Explore extends AbsSection {
   tl: GSAPTimeline
-  section: HTMLElement
-  items: NodeList
 
   constructor() {
-    this.section = document.querySelector('.explore')
-    this.items = this.section.querySelectorAll('li')
+    super('.explore')
+
+    this.withItems()
     this.init()
   }
 
-  start() {
+  showAnimation(isMobile: Boolean = false) {
+    const defaultValues = { duration: 1, opacity: 0 }
+
     this.tl
       .addLabel('start')
+      .from(this.items[0], { x: '-=400', ...defaultValues }, 'start')
       .from(
-        this.items[0],
+        this.items[1],
         {
-          x: '-=400',
-          duration: 1,
-          opacity: 0,
+          y: !isMobile ? '+=400' : '0',
+          x: isMobile ? '+=400' : '0',
+          ...defaultValues,
         },
-        'start'
+        'start+0.5'
       )
-      .from(this.items[2], { x: '+=400', opacity: 0, duration: 1 }, 'start')
-      .from(this.items[1], { y: '+=200', opacity: 0, duration: 1 }, 'start')
-  }
-
-  init() {
-    gsap.registerPlugin(ScrollTrigger)
-    this.tl = gsap.timeline({
-      scrollTrigger: {
-        markers: true,
-        trigger: this.section,
-        start: 'top 50%',
-      },
-    })
-
-    this.start()
+      .from(
+        this.items[2],
+        { x: isMobile ? '-=400' : '+=400', ...defaultValues },
+        'start+1'
+      )
   }
 }
 

@@ -1,4 +1,5 @@
 import gsap from 'gsap'
+import { breakpoints } from '../utils/const'
 
 class Site {
   tl: GSAPTimeline
@@ -15,12 +16,31 @@ class Site {
     this.init()
   }
 
-  init() {
-    this.tl.set([this.header, this.main, this.footer], { opacity: 0 })
+  desktopAnimation() {
+    const sections = Array.from(this.main.children)
+
+    const fromToValue = { y: 0, opacity: 1 }
+    this.tl.set([this.header, ...sections, this.footer], { opacity: 0 })
     this.tl
-      .fromTo([this.header], { y: '-=100' }, { y: 0, opacity: 1 })
-      .fromTo([this.footer], { y: '+=100' }, { y: 0, opacity: 1 })
-      .to(this.main, { opacity: 1 })
+      .fromTo(this.header, { y: '-=100' }, fromToValue)
+      .to(sections, { y: '+=50', stagger: 0.4, opacity: 1 })
+      .fromTo(this.footer, { y: '+=100' }, fromToValue)
+  }
+
+  mobileAnimation() {
+    const toggler = this.header.querySelector('.menu-toggler')
+    const sections = this.main.children
+    this.tl.set([toggler, sections], { opacity: 0, duration: 2 })
+    this.tl.from(toggler, { x: '-=100', rotate: '-180deg', opacity: 1 })
+    this.tl.from(sections, { x: '-=100', opacity: 1 })
+  }
+
+  init() {
+    if (window.innerWidth >= breakpoints.lg) {
+      this.desktopAnimation()
+    } else {
+      this.mobileAnimation()
+    }
   }
 }
 
