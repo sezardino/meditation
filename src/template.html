@@ -9,6 +9,12 @@
   </head>
   <body>
     <header class="header">
+      <button class="menu-toggler header__menu-toggler">
+        <span class="menu-toggler__line"></span>
+        <span class="menu-toggler__line"></span>
+        <span class="menu-toggler__line"></span>
+        <span class="visually-hidden">Open menu</span>
+      </button>
       <div class="container header__container">
         <div class="logo header__logo">
           <img
@@ -17,7 +23,7 @@
             class="logo__img"
           />
         </div>
-        <nav class="navigation header__nav">
+        <nav class="navigation navigation--header header__nav">
           <ul class="navigation__list">
             <li class="navigation__item navigation__item--active">
               <a href="#" class="navigation__link">Home</a>
@@ -358,7 +364,7 @@
         <div class="container explore__container">
           <ul class="explore__list">
             <li class="explore__item">
-              <h3 class="explore__title">Meditation</h3>
+              <h3 class="explore__heading">Meditation</h3>
               <img
                 src="./assets/images/meditation.png"
                 alt="Meditation"
@@ -371,7 +377,7 @@
               <button class="button explore__button">Learn More</button>
             </li>
             <li class="explore__item">
-              <h3 class="explore__title">Yoga</h3>
+              <h3 class="explore__heading">Yoga</h3>
               <img
                 src="./assets/images/yoga.png"
                 alt="Yoga"
@@ -384,7 +390,7 @@
               <button class="button explore__button">Learn More</button>
             </li>
             <li class="explore__item">
-              <h3 class="explore__title">Sound</h3>
+              <h3 class="explore__heading">Sound</h3>
               <img
                 src="./assets/images/sound.png"
                 alt="Sound"
@@ -407,7 +413,7 @@
             <h2 class="practice__title">
               Practice Wherever You Want, Whenever You Need
             </h2>
-            <p class="practice__heading">
+            <p class="practice__subtitle">
               “These cases are perfectly simple and easy to distinguish. In a
               free hour, when our power of choice is untrammelled and when
               nothing prevents our being able to do what we like best.”

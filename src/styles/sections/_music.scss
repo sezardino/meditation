@@ -6,6 +6,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  @include breakpoint-down('lg') {
+    padding-bottom: 0;
+  }
   &__container {
   }
 
@@ -25,6 +29,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    @include breakpoint-down('lg') {
+      margin-top: 25px;
+      flex-direction: column-reverse;
+    }
   }
 
   &__list {
@@ -37,6 +46,9 @@
 
     @include breakpoint-down('xxl') {
       max-width: 375px;
+    }
+    @include breakpoint-down('lg') {
+      max-width: 500px;
     }
   }
 

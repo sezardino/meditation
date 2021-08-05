@@ -2,9 +2,14 @@
   padding-top: 200px;
 
   background-image: var(--hero-bg);
-  background-position: top left;
+  background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @include breakpoint-down('lg') {
+    padding-top: 100px;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -20,6 +25,14 @@
 
     max-width: 760px;
     margin: 0 auto;
+
+    font-size: 6.8rem;
+    line-height: 8.8rem;
+
+    @include breakpoint-down('lg') {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
   }
 
   &__text {
@@ -35,5 +48,7 @@
   }
 
   &__img {
+    width: 100%;
+    height: auto;
   }
 }

@@ -17,6 +17,11 @@ section {
       line-height: 7rem;
 
       color: var(--color-black);
+
+      @include breakpoint-down('lg') {
+        font-size: 2.5rem;
+        line-height: 2.7rem;
+      }
     }
 
     p {
@@ -27,6 +32,11 @@ section {
       background: -webkit-linear-gradient(#259385, #159685);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @include breakpoint-down('lg') {
+        font-size: 1.8rem;
+        line-height: 2.1rem;
+      }
     }
   }
 }

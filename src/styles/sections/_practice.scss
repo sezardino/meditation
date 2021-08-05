@@ -28,6 +28,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    @include breakpoint-down('lg') {
+      margin-top: 25px;
+      flex-direction: column;
+    }
   }
 
   &__img-wrapper {
@@ -35,6 +40,7 @@
 
   &__img {
     width: 100%;
+    height: auto;
   }
 
   &__list {
@@ -45,6 +51,9 @@
 
     @include breakpoint-down('xxl') {
       max-width: 400px;
+    }
+    @include breakpoint-down('lg') {
+      max-width: 100%;
     }
   }
 
@@ -59,6 +68,11 @@
       .practice__icon {
         opacity: 1;
       }
+    }
+
+    @include breakpoint-down('lg') {
+      background-color: var(--color-white);
+      opacity: 1;
     }
   }
 
@@ -116,5 +130,9 @@
 
     transition: 0.4s opacity easy;
     opacity: 0;
+
+    @include breakpoint-down('lg') {
+      opacity: 1;
+    }
   }
 }

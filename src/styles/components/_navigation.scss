@@ -5,6 +5,10 @@
     display: flex;
     align-items: center;
     gap: 50px;
+
+    @include breakpoint-down('lg') {
+      flex-direction: column;
+    }
   }
 
   &__item {
@@ -76,6 +80,9 @@
   .navigation {
     &__list {
       gap: 0;
+      @include breakpoint-down('lg') {
+        gap: 20px;
+      }
     }
 
     &__link {
@@ -96,6 +103,10 @@
         right: 0;
 
         transform: translateY(-50%);
+
+        @include breakpoint-down('lg') {
+          content: none;
+        }
       }
 
       &:last-child:after {

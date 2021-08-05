@@ -6,6 +6,11 @@
   background-size: cover;
   background-position: center;
 
+  @include breakpoint-down('lg') {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
   &__container {
   }
 
@@ -49,14 +54,22 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+
+    @include breakpoint-down('lg') {
+      flex-direction: column;
+    }
   }
 
   &__item:nth-child(2n) {
     flex-direction: row-reverse;
+    @include breakpoint-down('lg') {
+      flex-direction: column;
+    }
   }
 
   &__img {
     width: 100%;
+    height: auto;
   }
 
   &__item-wrapper {
@@ -64,6 +77,9 @@
 
     @include breakpoint-down('xxl') {
       max-width: 450px;
+    }
+    @include breakpoint-down('lg') {
+      max-width: 100%;
     }
   }
 
