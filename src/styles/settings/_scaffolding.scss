@@ -5,10 +5,13 @@ html {
 }
 
 body {
-  font-family: 'Roboto';
+  font-family: var(--body-font);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--bg-color);
+  overflow-x: hidden;
 }
 
 *,

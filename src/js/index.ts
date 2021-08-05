@@ -1,1 +1,5 @@
-console.log('start')
+import Animation from './animation'
+
+document.addEventListener('DOMContentLoaded', () => {
+  new Animation()
+})

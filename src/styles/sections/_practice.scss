@@ -1,0 +1,138 @@
+.practice {
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+  background-image: var(--practice-bg);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+
+  &__container {
+  }
+
+  &__header {
+  }
+
+  &__title {
+    max-width: 710px;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    margin-top: 22px;
+  }
+
+  &__wrapper {
+    margin-top: 70px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint-down('lg') {
+      margin-top: 25px;
+      flex-direction: column;
+    }
+  }
+
+  &__img-wrapper {
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+    @include breakpoint-down('xxl') {
+      max-width: 400px;
+    }
+    @include breakpoint-down('lg') {
+      max-width: 100%;
+    }
+  }
+
+  &__item {
+    border-radius: var(--border-radius-xs);
+
+    transition: 0.4s background-color ease-in-out;
+
+    &:hover {
+      background-color: var(--color-white);
+
+      .practice__icon {
+        opacity: 1;
+      }
+    }
+
+    @include breakpoint-down('lg') {
+      background-color: var(--color-white);
+      opacity: 1;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 720px;
+    padding: 35px 40px;
+    padding-right: 60px;
+
+    @include breakpoint-down('xxl') {
+      padding: 15px 20px;
+    }
+  }
+
+  &__link-wrapper {
+    position: relative;
+  }
+
+  &__heading {
+    font-weight: 500;
+    font-size: 3.2rem;
+    line-height: 4.7rem;
+
+    color: rgba(var(--color-black), 0.8);
+
+    @include breakpoint-down('xxl') {
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+    }
+  }
+
+  &__text {
+    margin-top: 10px;
+
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+
+    @include breakpoint-down('xxl') {
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__icon {
+    max-width: 100px;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    transform: translateY(50%);
+
+    transition: 0.4s opacity easy;
+    opacity: 0;
+
+    @include breakpoint-down('lg') {
+      opacity: 1;
+    }
+  }
+}
